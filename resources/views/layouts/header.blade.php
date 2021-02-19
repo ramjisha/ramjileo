@@ -6,7 +6,7 @@
     <div class="d-flex flex-column">
 
         <div class="profile">
-            <img src="img/profile.jpg" alt="" class="img-fluid rounded-circle">
+            <img src="/img/profile.jpg" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light"><a href="index.html">Ramji Leo</a></h1>
             <div class="social-links mt-3 text-center">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -25,7 +25,11 @@
                 <li><a href="{{ route('skillsnew') }}"><i class="bx bx-book-content"></i> Skills</a></li>
                 <li><a href="{{ route('blogsnew') }}"><i class="bx bx-server"></i> Blogs</a></li>
                 <li><a href="{{ route('contactnew') }}"><i class="bx bx-envelope"></i> Contact</a></li>
-                <li><a href="{{ route('authnew') }}"><i class="bx bx-envelope"></i> Login/Register</a></li>
+                @if(Auth::check())
+                <li><a href="{{ route('logout') }}"><i class="bx bx-envelope"></i>Logout</a></li>
+                @else
+                <li><a href="{{ route('login') }}"><i class="bx bx-envelope"></i> Login/Register</a></li>
+                @endif
             </ul>
         </nav><!-- .nav-menu -->
         <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>

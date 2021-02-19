@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index', function () {
     return view('index');
 })->name('indexnew');
 
@@ -31,16 +31,17 @@ Route::get('/skills', function () {
 
 Route::get('/blogs', function () {
     return view('blogs');
-})->name('blogsnew');
+})->name('blogsnew')->middleware(['auth', 'verified']);
 
 Route::get('/contact', function () {
     return view('contact');
 })->name('contactnew');
 
-Route::get('/auth', function () {
-    return view('auth');
-})->name('authnew');
-
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
