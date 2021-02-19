@@ -26,7 +26,7 @@
                 <li><a href="{{ route('blogsnew') }}"><i class="bx bx-server"></i> Blogs</a></li>
                 <li><a href="{{ route('contactnew') }}"><i class="bx bx-envelope"></i> Contact</a></li>
                 @if(Auth::check())
-                <li><a href="{{ route('logout') }}"><i class="bx bx-envelope"></i>Logout</a></li>
+                <li><a href="{{ route('logoutnew') }}"><i class="bx bx-envelope"></i>Logout</a></li>
                 @else
                 <li><a href="{{ route('login') }}"><i class="bx bx-envelope"></i> Login/Register</a></li>
                 @endif
